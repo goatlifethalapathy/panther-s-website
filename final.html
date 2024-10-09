@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panther S - Luxury Hypercars</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background-color: #000;
+            background-image: url('engine.jpg'); /* Add your background image here */
+            background-size: cover;/* Make the image cover the area */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-position: center; /* Center the background image */
+            height: 50vh; /* Adjust height to cover the top part of the page */
+            width: 100%; /* Full width */
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        nav a {
+            margin: 0 30px;
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .prev, .next {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 2em;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .prev { left: 30px; }
+        .next { right: 30px; }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .history-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .history-card {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px;
+            border-radius: 15px;
+            padding: 20px;
+            width: 30%;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-card h3 {
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .history-card:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+        }
+
+        audio {
+            display: none; /* Hide audio controls */
+        }
+
+        /* Music control buttons */
+        #music-controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #music-controls button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #f1c40f;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #music-controls button:hover {
+            background-color: #e67e22;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Panther S</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#models">Models</a>
+        <a href="history.html">History</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Background Image Section -->
+<div class="background-image"></div>
+
+<!-- Hero Slider -->
+<div class="hero-slider">
+    <div class="slide active" style="background-image: url('https://example.com/image1.jpg');"></div>
+    <div class="slide" style="background-image: url('https://example.com/image2.jpg');"></div>
+    <div class="slide" style="background-image: url('https://example.com/image3.jpg');"></div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<!-- About Section -->
+<div class="section" id="about">
+    <h2>About Panther S</h2>
+    <p>At Panther S, we are committed to excellence in automotive engineering. Our sport-coupe cars blend cutting-edge technology with unrivaled design.</p>
+</div>
+
+<!-- Model Showcase Section -->
+<div class="section" id="models">
+    <h2>Our Models</h2>
+    <div class="model-showcase">
+        <div class="model-card">
+            <img src="https://example.com/model1.jpg" alt="Model 1" style="width:100%; border-radius: 15px;">
+            <h3>Model 1</h3>
+            <p>The Panther S Model 1 is a masterpiece of engineering.</p>
+        </div>
+        <div class="model-card">
+            <img src="https://example.com/model2.jpg" alt="Model 2" style="width:100%; border-radius: 15px;">
+            <h3>Model 2</h3>
+            <p>The Panther S Model 2 combines speed and luxury.</p>
+        </div>
+        <div class="model-card">
+            <img src="https://example.com/model3.jpg" alt="Model 3" style="width:100%; border-radius: 15px;">
+            <h3>Model 3</h3>
+            <p>The Panther S Model 3 is designed for ultimate performance.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Pricing and Modifications Section -->
+<div class="section" id="pricing">
+    <h2>Pricing and Modifications</h2>
+    <p>The Panther S Model 1 is priced at <strong>$50,000</strong>. Here are some of the specific modifications:</p>
+    <ul>
+        <li><strong>Engine:</strong> Custom 3.0 litre Straight 6 engine,meant to produce265+ horsepower.</li>
+        <li><strong>Exterior:</strong> Carbon fiber body kit for reuduced weight and increased aerodynamics.</li>
+        <li><strong>Interior:</strong> Bespoke leather upholstery and a state-of-the-art infotainment system.</li>
+        <li><strong>Performance:</strong> Enhanced suspension and braking systems for improved handling,with lane-keep assist .</li>
+        <li><strong>Reason of Creation:</strong> This is a car meant to appeal first time buyers especially teens .</li>
+    </ul>
+    <p>Each vehicle can be tailored to the owner’s specifications, ensuring a truly unique driving experience.</p>
+</div>
+
+
+<!-- History Section -->
+<div class="section" id="history">
+    <h2>Our Legacy</h2>
+    <div class="history-container">
+        <div class="history-card" id="past">
+            <h3>Past</h3>
+            <p>Founded in 2024, Panther S emerged from a passion for automotive excellence. Our first model was a symbol of speed and luxury.</p>
+            <p><strong>Key Milestones:</strong></p>
+            <ul>
+                <li>2024: Company founded.</li>
+                <li>2025: First model released.</li>
+                <li>2026: Won multiple awards for design.</li>
+            </ul>
+        </div>
+        <div class="history-card" id="present">
+            <h3>Present</h3>
+            <p>Today, Panther S is renowned for its attention to detail, performance, and exclusivity, offering limited editions that embody the pinnacle of luxury.</p>
+            <p><strong>Current Models:</strong></p>
+            <ul>
+                <li>Model 1: 0-60 in under 5 seconds.</li>
+                <li>Model 2: Sports car with sustainable materials.</li>
+                <li>Model 3: Track-focused design.</li>
+            </ul>
+        </div>
+        <div class="history-card" id="future">
+            <h3>Future</h3>
+            <p>Our commitment to innovation drives us toward sustainable performance, with sport-coupe models that maintain the thrilling experience our brand is known for.</p>
+            <p><strong>Future Goals:</strong></p>
+            <ul>
+                <li>2025: Launch of electric models.</li>
+                <li>2027: Expand global presence.</li>
+                <li>2030: Achieve carbon neutrality.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<!-- Footer Section -->
+<div class="footer">
+    <p>&copy; 2024 Panther S. All rights reserved.</p>
+</div>
+
+<!-- Music Controls Section -->
+<div id="music-controls">
+    <button onclick="playMusic()">Play Music</button>
+    <button onclick="pauseMusic()">Pause Music</button>
+</div>
+
+<!-- Background Music -->
+<audio id="background-music" loop>
+    <source src="time.mp3" type="audio/mpeg"> <!-- Add your high-energy luxury track here -->
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+// JavaScript for the Panther S website
+
+// Slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Initialize first slide
+showSlide(currentSlide);
+
+// Music controls functionality
+const backgroundMusic = document.getElementById('background-music');
+
+function playMusic() {
+    backgroundMusic.play();
+}
+
+function pauseMusic() {
+    backgroundMusic.pause();
+}
+</script>
+</body>
+</html>
+
